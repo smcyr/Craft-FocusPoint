@@ -1,0 +1,117 @@
+.focuspoint-buttons {
+    clear: both;
+    padding: 14px;
+    border-radius: 4px;
+    border: 1px solid #e3e5e8;
+    background: #fafafa;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+body.ltr .focuspoint-buttons .btn,
+body.rtl .focuspoint-buttons .btn {
+    clear: none;
+}
+
+.focuspoint-buttons .title {
+    margin-bottom: 4px;
+}
+
+.focuspoint-buttons .title:last-child {
+    margin-bottom: 0;
+}
+
+.focuspoint img {
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+}
+
+.helper-tool-target-wrapper {
+    width: 300px;
+    position: absolute;
+    left: 30px;
+    top: 30px;
+    box-shadow: 0px 0px 13px rgba(0,0,0,0.6);
+    background: #fff;
+    border: 1px solid #fff;
+    padding: 10px;
+    z-index: 1;
+}
+
+.helper-tool-target {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.helper-tool-target img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+.helper-tool-target img.target-overlay, .helper-tool-target img.reticle {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.helper-tool-target img.target-overlay {
+    cursor: pointer;
+    opacity: 0.01;
+}
+
+.helper-tool-target img.reticle {
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    transition: all 500ms ease-in-out;
+    -webkit-transition: all 500ms ease-in-out;
+    -moz-transition: all 500ms ease-in-out;
+}
+
+.frames {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.frames .focuspoint {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.frame1, .frame2, .frame3, .frame4, .frame5, .frame6, .frame7, .frame8, .frame9 {
+    position: absolute;
+    overflow: hidden;
+    border: 2px solid #fff;
+    box-sizing: border-box;
+}
+.frame1, .frame4, .frame7 {
+    width: 66.6666667%;
+    left: 0;
+}
+.frame2, .frame5, .frame8 {
+    width: 22.2222222%;
+    left: 66.6666667%;
+}
+.frame3, .frame6, .frame9 {
+    width: 11.1111111%;
+    left: 88.8888889%;
+}
+.frame1, .frame2, .frame3 {
+    height: 66.6666667%;
+    top: 0;
+}
+.frame4, .frame5, .frame6 {
+    height: 22.2222222%;
+    top: 66.6666667%;
+}
+.frame7, .frame8, .frame9 {
+    height: 11.1111111%;
+    top: 88.8888889%;
+}
