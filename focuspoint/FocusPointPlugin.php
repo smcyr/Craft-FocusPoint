@@ -2,24 +2,25 @@
 
 namespace Craft;
 
-class FocusPointPlugin extends BasePlugin {
+class FocusPointPlugin extends BasePlugin
+{
 
-    function getName()
+    public function getName()
     {
         return Craft::t('Focus Point');
     }
 
-    function getVersion()
+    public function getVersion()
     {
         return '1.0.0';
     }
 
-    function getDeveloper()
+    public function getDeveloper()
     {
         return 'Mutation digitale';
     }
 
-    function getDeveloperUrl()
+    public function getDeveloperUrl()
     {
         return 'http://mutation.io';
     }
@@ -39,7 +40,8 @@ class FocusPointPlugin extends BasePlugin {
         return 'https://raw.githubusercontent.com/surrealpistach/Craft-FocusPoint/master/changelog.json';
     }
 
-    public function init() {
+    public function init()
+    {
         craft()->on('elements.onBeforeDeleteElements', function (Event $event) {
             $elementIds = $event->params['elementIds'];
             foreach ($elementIds as $elementId) {
