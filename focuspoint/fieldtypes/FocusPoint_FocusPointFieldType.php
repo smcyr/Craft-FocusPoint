@@ -40,8 +40,8 @@ class FocusPoint_FocusPointFieldType extends AssetsFieldType
         $parentValues = parent::prepValue($value);
         foreach ($parentValues as $parentValue) {
             $focus_attr = craft()->focusPoint_focusPoint->getFocusPoint($parentValue->id, $this->model->id, $this->element->id);
-            $parentValue->setAttribute("x", $focus_attr->x);
-            $parentValue->setAttribute("y", $focus_attr->y);
+            $parentValue->setAttribute("focusX", $focus_attr->x);
+            $parentValue->setAttribute("focusY", $focus_attr->y);
         }
         return $parentValues;
     }
