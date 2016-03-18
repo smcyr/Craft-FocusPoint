@@ -12,22 +12,22 @@ class FocusPointPlugin extends BasePlugin
 
     public function getVersion()
     {
-        return '1.0.0';
+        return '1.0.1';
     }
 
     public function getDeveloper()
     {
-        return 'Mutation digitale';
+        return 'Samuel Marineau-Cyr';
     }
 
     public function getDeveloperUrl()
     {
-        return 'http://mutation.io';
+        return 'https://github.com/smcyr';
     }
 
     public function getPluginUrl()
     {
-        return 'https://github.com/surrealpistach/Craft-FocusPoint';
+        return 'https://github.com/smcyr/Craft-FocusPoint';
     }
 
     public function getDocumentationUrl()
@@ -37,7 +37,7 @@ class FocusPointPlugin extends BasePlugin
 
     public function getReleaseFeedUrl()
     {
-        return 'https://raw.githubusercontent.com/surrealpistach/Craft-FocusPoint/master/changelog.json';
+        return 'https://raw.githubusercontent.com/smcyr/Craft-FocusPoint/master/changelog.json';
     }
 
     public function init()

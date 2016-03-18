@@ -15,8 +15,8 @@ In your template, you can access the focus point data this way (you should load 
 ```html
 {% set image = entry.image.first() %}
 <div class="focuspoint"
-	data-focus-x="{{ image.x }}"
-	data-focus-y="{{ image.y }}"
+	data-focus-x="{{ image.focusX }}"
+	data-focus-y="{{ image.focusY }}"
 	data-image-w="{{ image.width }}"
 	data-image-h="{{ image.height }}">
 	<img src="{{ image.url }}">
@@ -31,7 +31,7 @@ Alternatively, you can use it in combination with Imager (https://github.com/ael
 	width: 800,
     height: 600,
     mode: 'crop',
-    position: image.getPctX() ~ '% ' ~ image.getPctY() ~ '%'
+    position: image.focusPctX ~ '% ' ~ image.focusPctY ~ '%'
 })
 <img src="{{ transformedImage.url }}">
 ```
@@ -42,7 +42,7 @@ or as a background image in css :
 {% set image = entry.image.first() %}
 <div style="background-image: url('{{ image.url }}');
     background-size: cover;
-    background-position: {{ image.getPctX() }}% {{ image.getPctY() }}%;">
+    background-position: {{ image.focusPctX }}% {{ image.focusPctY }}%;">
 </div>
 ```
 

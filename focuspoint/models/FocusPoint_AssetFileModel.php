@@ -6,17 +6,17 @@ class FocusPoint_AssetFileModel extends AssetFileModel
     protected function defineAttributes()
     {
         return array_merge(parent::defineAttributes(), array(
-            'x' => AttributeType::Number,
-            'y' => AttributeType::Number
+            'focusX' => AttributeType::Number,
+            'focusY' => AttributeType::Number
         ));
     }
 
-    public function getPctX()
+    public function focusPctX()
     {
         return ((parent::getAttribute("x") + 1) / 2) * 100;
     }
 
-    public function getPctY()
+    public function focusPctY()
     {
         return ((parent::getAttribute("y") + 1) / 2) * 100;
     }

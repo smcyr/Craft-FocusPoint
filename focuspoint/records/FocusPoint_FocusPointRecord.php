@@ -11,8 +11,8 @@ class FocusPoint_FocusPointRecord extends BaseRecord
     protected function defineAttributes()
     {
         return array(
-            'x' => AttributeType::String,
-            'y' => AttributeType::String,
+            'focusX' => AttributeType::String,
+            'focusY' => AttributeType::String,
             'sourceId' => AttributeType::Number
         );
     }

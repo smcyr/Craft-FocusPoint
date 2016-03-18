@@ -25,9 +25,9 @@
             <div data-id="{{ element.id }}">
                 {% set focus_attr = focusAttributes[element.id]|default %}
                 <input type="hidden" name="{{ name }}[focus-attr][{{ loop.index - 1 }}][data-focus-x]"
-                       value="{{ focus_attr|default ? focus_attr.x : "0" }}">
+                       value="{{ focus_attr|default ? focus_attr.focusX : "0" }}">
                 <input type="hidden" name="{{ name }}[focus-attr][{{ loop.index - 1 }}][data-focus-y]"
-                       value="{{ focus_attr|default ? focus_attr.y : "0" }}">
+                       value="{{ focus_attr|default ? focus_attr.focusY : "0" }}">
             </div>
         {% endfor %}
     </div>
