@@ -1,10 +1,14 @@
-# Craft-FocusPoint
+# Focus point field type for Craft CMS
 
 A plugin for Craft CMS based on jQuery FocusPoint (https://github.com/jonom/jquery-focuspoint). This create a new field type "Focus Point" where you can choose coordinates on an image for the focus point. It's a good way to use the same field/image for multiple crops or responsive images.
 
+## Requirements
+
+Tested on Craft 2.5 and 2.6. No other specific requirement.
+
 ## How to install
 
-Put the focuspoint folder in the plugins directory and install it via the administration.
+Download the latest release and unzip the focuspoint folder in the plugins directory. Install it via the administration plugins page.
 
 ## How to use
 
