@@ -18,6 +18,6 @@ class FocusPoint_AssetFileModel extends AssetFileModel
 
     public function focusPctY()
     {
-        return ((parent::getAttribute("focusY") + 1) / 2) * 100;
+        return ((parent::getAttribute("focusY") - 1) / 2) * -100;
     }
 }
