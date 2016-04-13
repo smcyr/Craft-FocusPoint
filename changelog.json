@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.3",
+    "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.0.3.zip",
+    "date": "2016-04-13 10:00:00",
+    "notes": [
+      "Bug fix for global fields"
+    ]
+  },
+  {
     "version": "1.0.2",
     "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.0.2.zip",
     "date": "2016-04-11 09:30:00",
