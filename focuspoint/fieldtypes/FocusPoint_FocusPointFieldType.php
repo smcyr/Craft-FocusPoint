@@ -64,9 +64,11 @@ class FocusPoint_FocusPointFieldType extends AssetsFieldType
             $this->element->id
         );
 
-        $value = $this->values[spl_object_hash($this->element)];
+        $hash = spl_object_hash($this->element);
 
-        if (isset($value["focus-attr"])) {
+        $value = isset($this->values[$hash]) ? $this->values[$hash] : null;
+
+        if ($value && isset($value["focus-attr"])) {
             $i = 0;
             foreach ($value["focus-attr"] as $focus_attr) {
                 craft()->focusPoint_focusPoint->createOrUpdateFocusPoint(
