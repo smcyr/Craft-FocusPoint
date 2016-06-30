@@ -23,7 +23,10 @@ class FocusPoint_FocusPointFieldType extends AssetsFieldType
 
         $variables = $this->getInputTemplateVariables($name, $criteria);
 
-        $db_attributes = craft()->focusPoint_focusPoint->getAllFocusPoints($this->model->id, $this->element->id);
+        $elementId = $this->element ? $this->element->id : null;
+        $modelId = $this->model ? $this->model->id : null;
+
+        $db_attributes = craft()->focusPoint_focusPoint->getAllFocusPoints($modelId, $elementId);
         $attributes = array();
         foreach ($db_attributes as $db_attribute) {
             $attributes[$db_attribute->assetId] = $db_attribute;
