@@ -32,11 +32,11 @@ Alternatively, you can use it in combination with Imager (https://github.com/ael
 ```html
 {% set image = entry.image.first() %}
 {% set transformedImage = craft.imager.transformImage(image, {
-	width: 800,
+    width: 800,
     height: 600,
     mode: 'crop',
     position: image.focusPctX ~ '% ' ~ image.focusPctY ~ '%'
-})
+}) %}
 <img src="{{ transformedImage.url }}">
 ```
 
