@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.6",
+    "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.0.6.zip",
+    "date": "2016-07-15 10:45:00",
+    "notes": [
+      "Fix live editing"
+    ]
+  },
+  {
     "version": "1.0.5",
     "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.0.5.zip",
     "date": "2016-07-15 10:00:00",

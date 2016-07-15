@@ -41,10 +41,20 @@ class FocusPoint_FocusPointFieldType extends AssetsFieldType
     public function prepValue($value)
     {
         $parentValues = parent::prepValue($value);
+        $i = 0;
         foreach ($parentValues as $parentValue) {
-            $focus_attr = craft()->focusPoint_focusPoint->getFocusPoint($parentValue->id, $this->model->id, $this->element->id);
-            $parentValue->setAttribute("focusX", $focus_attr->focusX);
-            $parentValue->setAttribute("focusY", $focus_attr->focusY);
+            if (isset($this->values[spl_object_hash($this->element)]["focus-attr"])) {
+                $focus_attr = $this->values[spl_object_hash($this->element)]["focus-attr"][$i];
+                $focus_x = $focus_attr["data-focus-x"];
+                $focus_y = $focus_attr["data-focus-y"];
+            } else {
+                $focus_attr = craft()->focusPoint_focusPoint->getFocusPoint($parentValue->id, $this->model->id, $this->element->id);
+                $focus_x = $focus_attr->focusX;
+                $focus_y = $focus_attr->focusY;
+            }
+            $parentValue->setAttribute("focusX", $focus_x);
+            $parentValue->setAttribute("focusY", $focus_y);
+            $i++;
         }
         return $parentValues;
     }
