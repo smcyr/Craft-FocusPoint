@@ -5,49 +5,59 @@ namespace Craft;
 class FocusPointPlugin extends BasePlugin
 {
 
-    public function getName()
-    {
-        return Craft::t('Focus Point');
-    }
+	public function getName()
+	{
+		return Craft::t('Focus Point');
+	}
 
-    public function getVersion()
-    {
-        return '1.0.4';
-    }
+	public function getVersion()
+	{
+		return '1.0.5';
+	}
 
-    public function getDeveloper()
-    {
-        return 'Samuel Marineau-Cyr';
-    }
+	public function getSchemaVersion()
+	{
+		return '1.0.1';
+	}
 
-    public function getDeveloperUrl()
-    {
-        return 'https://github.com/smcyr';
-    }
+	public function getDeveloper()
+	{
+		return 'Samuel Marineau-Cyr';
+	}
 
-    public function getPluginUrl()
-    {
-        return 'https://github.com/smcyr/Craft-FocusPoint';
-    }
+	public function getDeveloperUrl()
+	{
+		return 'https://github.com/smcyr';
+	}
 
-    public function getDocumentationUrl()
-    {
-        return $this->getPluginUrl() . '/blob/master/README.md';
-    }
+	public function getPluginUrl()
+	{
+		return 'https://github.com/smcyr/Craft-FocusPoint';
+	}
 
-    public function getReleaseFeedUrl()
-    {
-        return 'https://raw.githubusercontent.com/smcyr/Craft-FocusPoint/master/changelog.json';
-    }
+	public function getDocumentationUrl()
+	{
+		return $this->getPluginUrl() . '/blob/master/README.md';
+	}
 
-    public function init()
-    {
-        craft()->on('elements.onBeforeDeleteElements', function (Event $event) {
-            $elementIds = $event->params['elementIds'];
-            foreach ($elementIds as $elementId) {
-                craft()->focusPoint_focusPoint->deleteFocusPointRecordsBySourceId($elementId);
-            }
-        });
-    }
+	public function getReleaseFeedUrl()
+	{
+		return 'https://raw.githubusercontent.com/smcyr/Craft-FocusPoint/master/changelog.json';
+	}
+
+	public function init()
+	{
+		craft()->on('elements.onBeforeDeleteElements', function (Event $event) {
+			$elementIds = $event->params['elementIds'];
+			foreach ($elementIds as $elementId) {
+				craft()->focusPoint_focusPoint->deleteFocusPointRecordsBySourceId($elementId);
+			}
+		});
+
+		craft()->on('assets.onBeforeDeleteAsset', function (Event $event) {
+			$asset = $event->params["asset"];
+			craft()->focusPoint_focusPoint->deleteFocusPointRecordsByAssetId($asset->id);
+		});
+	}
 
 }

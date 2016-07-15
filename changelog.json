@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.0.5",
+    "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.0.5.zip",
+    "date": "2016-07-15 10:00:00",
+    "notes": [
+      "Bug fixes to prevent schema update each time and to prevent an error when deleting assets associated with focuspoint fields"
+    ]
+  },
+  {
     "version": "1.0.4",
     "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.0.4.zip",
     "date": "2016-06-30 10:50:00",
