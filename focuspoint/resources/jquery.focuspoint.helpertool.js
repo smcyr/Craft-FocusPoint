@@ -47,10 +47,10 @@
         $parentInput: null,
         $elements: null,
         $data: null,
-        $buttons: null,
         name: null,
         reticle: null,
         modals: null,
+        focusIconTpl: null,
 
         init: function (id) {
             var that = this;
@@ -59,10 +59,31 @@
             this.$parentInput = this.$this.closest(".input").find(">input[type='hidden']");
             this.$elements = this.$this.find(".elements");
             this.$data = this.$this.find('.focuspoint-data');
-            this.$buttons = this.$this.find('.focuspoint-buttons');
             this.name = this.$data.data("name");
             this.reticle = this.$data.data("reticle");
             this.modals = [];
+            this.focusIconTpl = '<a class="focuspoint-btn icon" title="Focus point"></a>';
+
+            var preventDefault = function(event) {
+                event.stopPropagation();
+            };
+
+            var btnClick = function(event) {
+                event.stopPropagation();
+
+                var id = $(this).closest(".element").data("id");
+
+                that.modals[id].show();
+            };
+
+            this.$elements.find('.element').each(function(i, e) {
+                $(e).addClass("focuselement");
+
+                $(that.focusIconTpl)
+                    .prependTo($(e))
+                    .bind("click", btnClick)
+                    .bind("mousedown mouseup", preventDefault);
+            });
 
             this.$this.data('elementSelect')
                 .on('selectElements', function (e) {
@@ -70,12 +91,10 @@
                     var $newElements = that.$elements.find('.element').slice(-e.elements.length);
 
                     $newElements.each(function (i, e) {
-                        var $newEl = $(e);
+                        var $newEl = $(e).addClass("focuselement");
                         var index = that.$elements.find('.element').index($newEl);
                         var id = $newEl.data('id');
                         var label = $newEl.data("label");
-
-                        that.$buttons.show();
 
                         $(
                             '<div data-id="' + id + '">' +
@@ -85,10 +104,10 @@
                         )
                             .appendTo(that.$data);
 
-                        $(
-                            '<div class="btn edit icon btn--focuspoint" data-id="' + id + '">' + label + '</div>'
-                        )
-                            .appendTo(that.$buttons);
+                        $(that.focusIconTpl)
+                            .prependTo($(e))
+                            .bind("click", btnClick)
+                            .bind("mousedown mouseup", preventDefault);
 
                         that.initializeModal(id);
                     });
@@ -111,12 +130,6 @@
 
                     });
 
-                    if (that.$data.find(">div").length < 1) {
-                        that.$buttons.hide();
-                    }
-
-                    that.$buttons.find('[data-id="' + id + '"]').remove();
-
                     that.updateInputs();
                     that.destroyModal(id);
 
@@ -125,17 +138,6 @@
             this.$data.find('>div').each(function (i) {
 
                 that.initializeModal($(this).data("id"));
-
-            });
-
-            this.$this.on("click", ".btn--focuspoint", function () {
-
-                var $parent = $(this).closest("div");
-                var id = $parent.data("id");
-
-                that.modals[id].show();
-
-                return false;
 
             });
         },
@@ -326,5 +328,3 @@
     });
 
 }(jQuery));
-
-Craft.registerElementIndexClass('FocusPoint_Asset', Craft.AssetIndex);

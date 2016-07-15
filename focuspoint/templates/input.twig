@@ -32,15 +32,6 @@
         {% endfor %}
     </div>
 
-    <div class="focuspoint-buttons"{% if elements | length < 1 %} style="display: none;"{% endif %}>
-        <div class="title">
-            {{ 'Focus point' | t }}
-        </div>
-        {% for element in elements %}
-            <div class="btn edit icon btn--focuspoint" data-id="{{ element.id }}">{{ element.title }}</div>
-        {% endfor %}
-    </div>
-
     <div class="btn add icon dashed">{{ selectionLabel }}</div>
 </div>
 

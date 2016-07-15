@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.1.0",
+    "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.1.0.zip",
+    "date": "2016-07-15 15:15:00",
+    "notes": [
+      "Revised UI by adding a little gear icon at the right of the assets"
+    ]
+  },
+  {
     "version": "1.0.6",
     "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.0.6.zip",
     "date": "2016-07-15 10:45:00",
