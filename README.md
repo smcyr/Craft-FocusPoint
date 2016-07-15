@@ -55,7 +55,3 @@ or as a background image in css :
 ![Edit field](https://raw.githubusercontent.com/smcyr/Craft-FocusPoint/master/screenshots/field.JPG)
 
 ![Edit Focus point popup](https://raw.githubusercontent.com/smcyr/Craft-FocusPoint/master/screenshots/fieldedit.JPG)
-
-## Roadmap
-
-* Find a better way to integrate the UI on the administration pages
