@@ -328,3 +328,6 @@
     });
 
 }(jQuery));
+
+Craft.FocusPoint_AssetIndex = Craft.AssetIndex.extend();
+Craft._elementIndexClasses['FocusPoint_Asset'] = Craft.FocusPoint_AssetIndex;
