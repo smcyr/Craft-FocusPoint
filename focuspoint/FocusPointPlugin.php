@@ -58,6 +58,16 @@ class FocusPointPlugin extends BasePlugin
 			$asset = $event->params["asset"];
 			craft()->focusPoint_focusPoint->deleteFocusPointRecordsByAssetId($asset->id);
 		});
+
+		Craft::import('plugins.focuspoint.integrations.feedme.fields.FocusPoint_FocusPointFeedMeFieldType');
 	}
+
+	// Feed Me 2.0 Field Type Support
+	public function registerFeedMeFieldTypes()
+    {
+        return array(
+            new FocusPoint_FocusPointFeedMeFieldType(),
+        );
+    }
 
 }
