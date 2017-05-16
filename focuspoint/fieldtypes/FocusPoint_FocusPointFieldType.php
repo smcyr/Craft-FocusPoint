@@ -42,9 +42,10 @@ class FocusPoint_FocusPointFieldType extends AssetsFieldType
     {
         $parentValues = parent::prepValue($value);
         $i = 0;
+        $array_values = isset($this->values[spl_object_hash($this->element)]["focus-attr"]) ? array_values($this->values[spl_object_hash($this->element)]["focus-attr"]) : array();
         foreach ($parentValues as $parentValue) {
-            if (isset($this->values[spl_object_hash($this->element)]["focus-attr"])) {
-                $focus_attr = $this->values[spl_object_hash($this->element)]["focus-attr"][$i];
+            if (!empty($array_values)) {
+                $focus_attr = $array_values[$i];
                 $focus_x = $focus_attr["data-focus-x"];
                 $focus_y = $focus_attr["data-focus-y"];
             } else {
