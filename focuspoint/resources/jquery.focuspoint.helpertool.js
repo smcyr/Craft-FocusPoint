@@ -79,11 +79,13 @@
             this.$elements.find('.element').each(function(i, e) {
                 $(e).addClass("focuselement");
 
-                $(e).data("drag").on("dragStop", function(e) {
-                    that.$elements.find('.element').each(function(i2, e2) {
-                        that.$data.find('>div[data-id="' + $(e2).data("id") + '"]').appendTo(that.$data);
+                if ($(e).data("drag") !== undefined) {
+                    $(e).data("drag").on("dragStop", function (e) {
+                        that.$elements.find('.element').each(function (i2, e2) {
+                            that.$data.find('>div[data-id="' + $(e2).data("id") + '"]').appendTo(that.$data);
+                        });
                     });
-                });
+                }
 
                 $(that.focusIconTpl)
                     .prependTo($(e))
