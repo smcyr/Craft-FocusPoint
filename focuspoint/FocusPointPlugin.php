@@ -51,11 +51,12 @@ class FocusPointPlugin extends BasePlugin
             $elementIds = $event->params['elementIds'];
             foreach ($elementIds as $elementId) {
                 $element = craft()->elements->getElementById($elementId);
-                if ($element->elementType === "Asset") {
-                    craft()->focusPoint_focusPoint->deleteFocusPointRecordsByAssetId($elementId);
-                }
-                else {
-                    craft()->focusPoint_focusPoint->deleteFocusPointRecordsBySourceId($elementId);
+                if ($element) {
+                    if ($element->elementType === "Asset") {
+                        craft()->focusPoint_focusPoint->deleteFocusPointRecordsByAssetId($elementId);
+                    } else {
+                        craft()->focusPoint_focusPoint->deleteFocusPointRecordsBySourceId($elementId);
+                    }
                 }
             }
         });
