@@ -73,16 +73,17 @@ class FocusPoint_FocusPointFieldType extends AssetsFieldType
 
     public function onAfterElementSave()
     {
-        craft()->focusPoint_focusPoint->deleteFocusPointRecordsByFieldIdAndSourceId(
-            $this->model->id,
-            $this->element->id
-        );
-
         $hash = spl_object_hash($this->element);
 
         $value = isset($this->values[$hash]) ? $this->values[$hash] : null;
 
         if ($value && isset($value["focus-attr"])) {
+            //since we know we have new data, we can delete the previous records
+            craft()->focusPoint_focusPoint->deleteFocusPointRecordsByFieldIdAndSourceId(
+                $this->model->id,
+                $this->element->id
+            );
+
             $i = 0;
             foreach ($value["focus-attr"] as $focus_attr) {
                 craft()->focusPoint_focusPoint->createOrUpdateFocusPoint(
