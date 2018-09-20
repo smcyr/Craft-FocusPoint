@@ -1,5 +1,13 @@
 [
   {
+    "version": "1.1.8",
+    "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.1.8.zip",
+    "date": "2018-09-20 09:15:00",
+    "notes": [
+      "Fix an issue (Verify that the key is in index)"
+    ]
+  },
+  {
     "version": "1.1.7",
     "downloadUrl": "https://github.com/surrealpistach/Craft-FocusPoint/archive/1.1.7.zip",
     "date": "2017-09-27 09:00:00",
